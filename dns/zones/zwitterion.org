@@ -1,0 +1,61 @@
+$TTL 1D
+
+@		SOA	diadora.zwitterion.org. hostmaster.zwitterion.org. ( 2014081701 3H 1H 2W 1H )
+		NS	diadora.zwitterion.org.
+		NS	texas.zwitterion.org.
+		NS	dns1.sage-au.org.au.
+
+		MX	42 diadora.zwitterion.org.
+		SPF	"v=spf1 a mx a:zwitterion.zwitterion.org a:texas.zwitterion.org include:gnu.org -all"
+		TXT	"v=spf1 a mx a:zwitterion.zwitterion.org a:texas.zwitterion.org include:gnu.org -all"
+		A	110.44.29.229
+
+_domainkey	TXT	"t=y\; o=~\;"
+
+suter-2013._domainkey TXT ( "v=DKIM1; k=rsa; "
+	"p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxCEAYvpCG8j6JgV37CnYLaYmrg6FmuSlFcDJft5HqkegrZ6LLyYu+zuYRmOaBmBvWBSs4at+ZSrbLArzPim6yb2nSIY9bafmtWCLkEOxHFS0Tw8L4O/7zAfPukE8Lw+phtNAAczD7KJnTR/b8GD3W5sMJDSXVokMAxvO8q4jZ9I+WBeVYvShTPrLfDWfn5dOfMasu6g2zGV4vX"
+	"Zhm1pq4qKpg0raPei2Y7eCNolOttL8yDBH928xF67C9dO+wNc48U1HZeuQV2yFJXMrDq+Bz+qoutwIF3t7PHnBbLg3nYn1+DARVUnJAv8LxWVq6Q0pIzks6D/BWbKyBDU8DVcfywIDAQAB" )
+
+; [MJS 23 Jun 2013] New server at home
+zwitterion	A	59.167.220.221
+		SPF	"v=spf1 a -all"
+		TXT	"v=spf1 a -all"
+		MX	21 zwitterion.zwitterion.org.
+		MX	42 diadora.zwitterion.org.
+
+diadora		A	110.44.29.229
+		SPF	"v=spf1 a -all"
+		TXT	"v=spf1 a -all"
+
+; [MJS 21 Sep 2010] New VI for backup NS and MX
+; [MJS	2 Mar 2014] Instance on Google Compute Engine
+texas		A	23.251.145.86
+		SPF	"v=spf1 a -all"
+		TXT	"v=spf1 a -all"
+
+; [MJS	4 Mar 2014] To show sendgrid.net that I own zwitterion.org.
+sendgrid	CNAME	sendgrid.net.
+
+; [MJS 30 May 2013] Trying Google PageSpeed (hosted reverse proxy)
+; [MJS 17 Aug 2014] And it was turned off without notice ;)
+; www		  CNAME pagespeed.googlehosted.com.
+www		A	110.44.29.229
+
+stats		A	110.44.29.229
+		SPF	"v=spf1 -all"
+		TXT	"v=spf1 -all"
+
+linbot		A	110.44.29.229
+		SPF	"v=spf1 -all"
+		TXT	"v=spf1 -all"
+
+checkbot	A	110.44.29.229
+		SPF	"v=spf1 -all"
+		TXT	"v=spf1 -all"
+
+; [MJS 4 Feb 2001] Added at Jason Parker's request
+lists		A	110.44.29.229
+		MX	42 diadora.zwitterion.org.
+		SPF	"v=spf1 a -all"
+		TXT	"v=spf1 a -all"
+

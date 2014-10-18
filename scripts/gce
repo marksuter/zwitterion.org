@@ -1,0 +1,56 @@
+#!/bin/bash
+
+set -e
+set -u
+
+project="zwitterion-org"
+
+# names="frigg:asia-east1-b metis:europe-west1-b thoth:us-central1-f"
+names="testing:us-central1-b"
+
+startup=$(mktemp)
+trap "rm -f ${startup}" EXIT
+cat > "${startup}" <<\EOF
+#!/bin/bash
+
+apt-get update
+apt-get upgrade --yes
+EOF
+
+function create() {
+  for x in ${names}; do
+    name="${x%:*}"
+    zone="${x#*:}"
+    gcloud compute instances create \
+      "${name}" \
+      --boot-disk-device-name "${name}" \
+      --boot-disk-size 10GB \
+      --boot-disk-type pd-ssd \
+      --description "nameserver and mail exchanger" \
+      --image debian-7-backports \
+      --machine-type f1-micro \
+      --metadata-from-file startup-script="${startup}" \
+      --project "${project}" \
+      --scopes 'default=storage-ro' \
+      --zone "${zone}"
+    echo gcloud compute ssh "${name}" --project "${project}" --zone "${zone}"
+  done
+}
+
+function delete() {
+  for x in ${names}; do
+    name="${x%:*}"
+    zone="${x#*:}"
+    gcloud compute instances delete \
+      "${name}" \
+      --project "${project}" \
+      --delete-disks all \
+      --zone "${zone}"
+  done
+}
+
+case "$@" in
+  create) create ;;
+  delete) delete ;;
+  *) echo Usage: $0 '[ create | delete ]' >&2; exit 1
+esac

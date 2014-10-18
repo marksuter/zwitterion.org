@@ -1,0 +1,18 @@
+$TTL 1D
+
+@		SOA	diadora.zwitterion.org. hostmaster.zwitterion.org. ( 2014041401 3H 1H 2W 1H )
+		NS	diadora.zwitterion.org.
+		NS	texas.zwitterion.org.
+
+		A	59.167.220.221
+		SPF	"v=spf1 include:zwitterion.org -all"
+		TXT	"v=spf1 include:zwitterion.org -all"
+		MX	21 zwitterion.zwitterion.org.
+		MX	42 diadora.zwitterion.org.
+
+_domainkey	TXT	"t=y\; o=~\;"
+
+suter-2013._domainkey TXT ( "v=DKIM1; k=rsa; "
+	"p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsryBvKrAEiHR1PiNyEGSIDVBse2xxIiPTvpPk2klkDZZzDUZaSDhuqNG9nfZTli/nzBHr3tKL4DVCQwEobYLD8WmGvQsRwmexwOmUpUSKgffhsrgbxgpN1cNuWv1tUNz9RDsE1TrZktqezQWpMcpnRZhwbkKOv/12i5rMiLXjY9Iw08lf+SnrYw2y33bNgzH01FD6mdFbuSwaf"
+	"mofsUOUUwnn+EGm6M7MNac/Lepfi5kzpGBa5pMGfgee7ZT1YhiFxDmFFFPjbA1RsDmjN2CbDIuMb6DqcuyMxiB2tApiNW5p3+c42dItFMYlzgNhQwaCmArI5WdMp43MsQ135wUuQIDAQAB" )
+
