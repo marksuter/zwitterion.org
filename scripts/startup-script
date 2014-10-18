@@ -3,4 +3,11 @@
 set -e
 set -u
 
-date --rfc-3339=sec
+apt-get update
+apt-get upgrade --yes
+apt-get install --yes git
+
+dir=$(mktemp -d)
+trap "rm -fr ${dir}" EXIT
+
+git clone --single-branch https://github.com/marksuter/zwitterion.org.git "${dir}"
