@@ -1,0 +1,37 @@
+
+options {
+  // [MJS 2014-07-03] Basic setup.
+  allow-query { any; };
+  allow-query-cache { none; };
+  auth-nxdomain no;
+  dnssec-validation auto;
+  recursion no;
+
+  // [MJS 2014-03-03] Prompted by a http://www.dnsinspect.com/ report.
+  version "Zwitterion";
+
+  // [MJS 2014-03-02] As per http://www.redbarn.org/dns/ratelimits
+  rate-limit {
+    responses-per-second 15;
+    window 5;
+  };
+
+};
+
+// TODO(suter): do this based on the directory listing.
+{%-
+set names = [
+  'mark.suter.name',
+  'suter.id.au',
+  'zwit.org',
+  'zwitterion.humbug.org.au',
+  'zwitterion.org',
+]
+-%}
+
+{% for name in names %}
+zone "{{ name }}" {
+  type master;
+  file "/src/dns/zones/{{ name }}";
+}
+{% endfor %}
