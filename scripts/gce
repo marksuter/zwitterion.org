@@ -3,6 +3,7 @@
 set -e
 set -u
 
+dnszone='zwitterion.org'
 names='
   frigg:asia-east1-b:130.211.241.144
   metis:europe-west1-b:146.148.116.68
@@ -11,40 +12,37 @@ names='
 project='zwitterion-org'
 startup='scripts/startup'
 
-function create() {
-  for x in ${names}; do
-    IFS=: read name zone address <<< "${x}"
-    gcloud compute instances create \
-      "${name}" \
-      --address "${address}" \
-      --boot-disk-device-name "${name}" \
-      --boot-disk-size 10GB \
-      --boot-disk-type pd-ssd \
-      --description "nameserver and mail exchanger" \
-      --image debian-7-backports \
-      --machine-type f1-micro \
-      --metadata-from-file "startup-script=${startup}" \
-      --project "${project}" \
-      --scopes 'default=storage-ro' \
-      --zone "${zone}"
-  done
-}
-
-function delete() {
-  for x in ${names}; do
-    IFS=: read name zone address <<< "${x}"
-    gcloud compute instances delete \
-      "${name}" \
-      --delete-disks all \
-      --project "${project}" \
-      --quiet \
-      --zone "${zone}"
-  done
-}
-
 case "$@" in
-  create) create ;;
-  delete) delete ;;
-  recreate) delete && create ;;
-  *) echo Usage: $0 '[ create | delete ]' >&2; exit 1
+  rebuild ) ;;
+  * ) echo "Usage: $0 rebuild" >&2; exit 1
 esac
+
+for x in ${names}; do
+  IFS=: read name zone address <<< "${x}"
+
+  gcloud compute instances delete \
+    "${name}" \
+    --delete-disks all \
+    --project "${project}" \
+    --quiet \
+    --zone "${zone}"
+
+  gcloud compute instances create \
+    "${name}" \
+    --address "${address}" \
+    --boot-disk-device-name "${name}" \
+    --boot-disk-size 10GB \
+    --boot-disk-type pd-ssd \
+    --description "nameserver and mail exchanger" \
+    --image debian-7-backports \
+    --machine-type f1-micro \
+    --metadata-from-file "startup-script=${startup}" \
+    --project "${project}" \
+    --quiet \
+    --zone "${zone}"
+
+  while ! dig +noall +aaonly +norecurse "@${address}" "${dnszone}" ns >/dev/null; do
+    sleep 10
+  done
+
+done
