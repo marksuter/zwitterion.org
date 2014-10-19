@@ -35,8 +35,9 @@ function delete() {
     IFS=: read name zone address <<< "${x}"
     gcloud compute instances delete \
       "${name}" \
-      --project "${project}" \
       --delete-disks all \
+      --project "${project}" \
+      --quiet \
       --zone "${zone}"
   done
 }
