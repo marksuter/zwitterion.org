@@ -6,10 +6,15 @@
     template:
       src=/srv/ansible/crontab.j2 dest=/etc/cron.d/ansible
       owner=root group=root mode=0644
+    notify:
+    - restart cron
   - name: Ensure logs are rotated.
     template:
       src=/srv/ansible/logrotate.j2 dest=/etc/logrotate.d/ansible
       owner=root group=root mode=0644
+  handlers:
+    - name: restart cron
+      service: name=cron state=restarted
 
 - hosts: nameservers
   tasks:
