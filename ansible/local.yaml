@@ -2,8 +2,18 @@
   tasks:
   - name: ensure bind9 is at the latest version.
     apt: pkg=bind9 state=latest
-  - name: generate the configuration file.
+  - name: get the list of zones.
+    command: ls /srv/dns/zones
+    register: zones
+  - name: generate a config.
     template:
       src=/srv/dns/named.conf.j2
       dest=/etc/bind/named.conf
       validate='named-checkconf %s'
+    notify:
+    - restart bind
+  - name: ensure the service is running.
+    service: name=bind9 state=started
+  handlers:
+    - name: restart bind
+      service: name=bind9 state=restarted

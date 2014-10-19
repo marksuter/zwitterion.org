@@ -1,10 +1,10 @@
-
 options {
   // [MJS 2014-07-03] Basic setup.
   allow-query { any; };
   allow-query-cache { none; };
+  allow-transfer{ none; };
   auth-nxdomain no;
-  dnssec-validation auto;
+  notify no;
   recursion no;
 
   // [MJS 2014-03-03] Prompted by a http://www.dnsinspect.com/ report.
@@ -15,23 +15,8 @@ options {
     responses-per-second 15;
     window 5;
   };
-
 };
 
-// TODO(suter): do this based on the directory listing.
-{%-
-set names = [
-  'mark.suter.name',
-  'suter.id.au',
-  'zwit.org',
-  'zwitterion.humbug.org.au',
-  'zwitterion.org',
-]
--%}
-
-{% for name in names %}
-zone "{{ name }}" {
-  type master;
-  file "/src/dns/zones/{{ name }}";
-}
+{% for zone in zones.stdout_lines %}
+zone "{{ zone }}" { type master; file "/srv/dns/zones/{{ zone }}"; };
 {% endfor %}
