@@ -7,7 +7,7 @@ dnszone='zwitterion.org'
 names='
   frigg:asia-east1-b:130.211.241.144
   metis:europe-west1-b:146.148.116.68
-  thoth:us-central1-f:130.211.126.6
+  thoth:us-central1-f:146.148.80.34
 '
 project='zwitterion-org'
 startup='scripts/startup'

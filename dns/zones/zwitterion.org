@@ -53,7 +53,7 @@ texas		A	23.251.145.86
 		SPF	"v=spf1 a -all"
 		TXT	"v=spf1 a -all"
 
-thoth		A	130.211.126.6
+thoth		A	146.148.80.34
 		SPF	"v=spf1 a -all"
 		TXT	"v=spf1 a -all"
 
