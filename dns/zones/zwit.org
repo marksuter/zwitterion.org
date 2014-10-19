@@ -1,25 +1,24 @@
 $TTL 1D
 
-@		SOA	diadora.zwitterion.org. hostmaster.zwitterion.org. ( 2014101901 3H 1H 2W 1H )
-		NS	diadora.zwitterion.org.
-		NS	texas.zwitterion.org.
-		NS	dns1.sage-au.org.au.
+@		SOA	zwitterion.zwitterion.org. suter.zwitterion.org. ( 2014101901 3H 1H 2W 1H )
+		NS	frigg.zwitterion.org.
+		NS	metis.zwitterion.org.
+		NS	thoth.zwitterion.org.
 
+		A	110.44.29.229
 		MX	42 diadora.zwitterion.org.
 		SPF	"v=spf1 include:zwitterion.org -all"
 		TXT	"v=spf1 include:zwitterion.org -all"
-		A	110.44.29.229
 
 _domainkey	TXT	"t=y\; o=~\;"
 
 suter-2013._domainkey TXT ( "v=DKIM1; k=rsa; "
-	"p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxphXstbFYC/0TstDmxVPaljFjWxci+ilUkpnnjPM0DzlqlagaImJeEEbvsiMvD8GrnR5jZCJPdrD72t/oz+7VK8OMB9S+Pd96RBnHA5TtK862QBzZTUdWE8Rdo8RtjgKp0pJbpfETAm4zvcWt/9yCiQpMo3+QVsU2Yz9JFWY9elT3qtbmhm7lIIxnZWEPDXpSMwPox8gyGFeAQ"
-	"C9BzPLg3Bkvm8IgFnR/UIQsrX9f9ul0fg4tYEu3zltD0hNdeJ+aT3fBbDHra+7kYsYny3MTBVK8jZC7PGaawyzTVbFG+R+tHWFiyCmlqLJkwX2AC4hEqR39H/v/dqxIUK5KaL1BwIDAQAB" )
+		"p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxphXstbFYC/0TstDmxVPaljFjWxci+ilUkpnnjPM0DzlqlagaImJeEEbvsiMvD8GrnR5jZCJPdrD72t/oz+7VK8OMB9S+Pd96RBnHA5TtK862QBzZTUdWE8Rdo8RtjgKp0pJbpfETAm4zvcWt/9yCiQpMo3+QVsU2Yz9JFWY9elT3qtbmhm7lIIxnZWEPDXpSMwPox8gyGFeAQ"
+		"C9BzPLg3Bkvm8IgFnR/UIQsrX9f9ul0fg4tYEu3zltD0hNdeJ+aT3fBbDHra+7kYsYny3MTBVK8jZC7PGaawyzTVbFG+R+tHWFiyCmlqLJkwX2AC4hEqR39H/v/dqxIUK5KaL1BwIDAQAB" )
 
-; For the link redirector
+sendgrid	CNAME	sendgrid.net.
+
 *		A	110.44.29.229
-
-; For my many email addresses
 *		MX	42 diadora.zwitterion.org.
 *		SPF	"v=spf1 include:zwitterion.org -all"
 *		TXT	"v=spf1 include:zwitterion.org -all"
