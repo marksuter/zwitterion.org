@@ -1,3 +1,16 @@
+- hosts: all
+  vars:
+    logfile: /var/log/ansible.log
+  tasks:
+  - name: Create the cronjob.
+    template:
+      src=/srv/ansible/crontab.j2 dest=/etc/cron.d/ansible
+      owner=root group=root mode=0644
+  - name: Ensure logs are rotated.
+    template:
+      src=/srv/ansible/logrotate.j2 dest=/etc/logrotate.d/ansible
+      owner=root group=root mode=0644
+
 - hosts: nameservers
   tasks:
   - name: ensure bind9 is at the latest version.
@@ -7,8 +20,8 @@
     register: zones
   - name: generate a config.
     template:
-      src=/srv/dns/named.conf.j2
-      dest=/etc/bind/named.conf
+      src=/srv/dns/named.conf.j2 dest=/etc/bind/named.conf
+      owner=root group=root mode=0644
       validate='named-checkconf %s'
     notify:
     - restart bind
