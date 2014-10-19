@@ -11,6 +11,8 @@ $TTL 1D
 		SPF	"v=spf1 include:zwitterion.org -all"
 		TXT	"v=spf1 include:zwitterion.org -all"
 
+_dmarc		TXT	"v=DMARC1; p=none; rua=mailto:paug8nqb@ag.dmarcian.com;"
+
 _domainkey	TXT	"t=y\; o=~\;"
 
 suter-2013._domainkey TXT ( "v=DKIM1; k=rsa; "
