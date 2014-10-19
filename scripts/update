@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -e
+set -u
+
+cd /srv
+
+git pull
+
+ansible-playbook --inventory=ansible/hosts ansible/local.yaml

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e
+set -u
+
+apt-get update
+apt-get upgrade --yes
+apt-get install --yes ansible git
+
+git clone https://github.com/marksuter/zwitterion.org.git /srv
+
+exec /srv/scripts/update

@@ -3,23 +3,10 @@
 set -e
 set -u
 
-project="zwitterion-org"
-
-# names="frigg:asia-east1-b metis:europe-west1-b thoth:us-central1-f"
-names="testing:us-central1-b"
-
-startup=$(mktemp)
-trap "rm -f ${startup}" EXIT
-cat > "${startup}" <<\EOF
-#!/bin/bash
-
-apt-get update
-apt-get upgrade --yes
-apt-get install --yes ansible git
-
-git clone https://github.com/marksuter/zwitterion.org.git /srv
-exec /srv/scripts/startup-script
-EOF
+# names='frigg:asia-east1-b metis:europe-west1-b thoth:us-central1-f'
+names='testing:us-central1-b'
+project='zwitterion-org'
+startup='scripts/startup'
 
 function create() {
   for x in ${names}; do
@@ -33,7 +20,7 @@ function create() {
       --description "nameserver and mail exchanger" \
       --image debian-7-backports \
       --machine-type f1-micro \
-      --metadata-from-file startup-script="${startup}" \
+      --metadata-from-file "startup-script=${startup}" \
       --project "${project}" \
       --scopes 'default=storage-ro' \
       --zone "${zone}"
