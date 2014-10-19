@@ -3,16 +3,20 @@
 set -e
 set -u
 
-# names='frigg:asia-east1-b metis:europe-west1-b thoth:us-central1-f'
-names='testing:us-central1-b'
+names='
+  frigg:asia-east1-b:130.211.241.144
+  metis:europe-west1-b:146.148.116.68
+  thoth:us-central1-f:130.211.126.6
+'
 project='zwitterion-org'
 startup='scripts/startup'
 
 function create() {
   for x in ${names}; do
-    IFS=: read name zone <<< "${x}"
+    IFS=: read name zone address <<< "${x}"
     gcloud compute instances create \
       "${name}" \
+      --address "${address}" \
       --boot-disk-device-name "${name}" \
       --boot-disk-size 10GB \
       --boot-disk-type pd-ssd \
@@ -28,7 +32,7 @@ function create() {
 
 function delete() {
   for x in ${names}; do
-    IFS=: read name zone <<< "${x}"
+    IFS=: read name zone address <<< "${x}"
     gcloud compute instances delete \
       "${name}" \
       --project "${project}" \
