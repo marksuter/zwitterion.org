@@ -1,0 +1,4 @@
+- hosts: nameservers
+  tasks:
+  - name: ensure bind9 is at the latest version.
+    apt: pkg=bind9 state=latest

@@ -15,14 +15,10 @@ cat > "${startup}" <<\EOF
 
 apt-get update
 apt-get upgrade --yes
-apt-get install --yes git
+apt-get install --yes ansible git
 
-dir=$(mktemp -d)
-trap "rm -fr ${dir}" EXIT
-cd $dir
-
-git clone https://github.com/marksuter/zwitterion.org.git
-exec ./zwitterion.org/scripts/startup-script
+git clone https://github.com/marksuter/zwitterion.org.git /srv
+exec /srv/scripts/startup-script
 EOF
 
 function create() {

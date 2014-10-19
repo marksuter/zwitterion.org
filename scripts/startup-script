@@ -3,4 +3,11 @@
 set -e
 set -u
 
-date --rfc-3339=sec
+cd /srv
+
+pit pull
+
+ansible-playbook \
+  --inventory=ansible/hosts \
+  ansible/local.yaml
+
