@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+set -u
+
+(
+  sleep 1
+  echo 'ehlo localhost'
+  sleep 1
+  echo 'mail from:<suter@zwitterion.org>'
+  sleep 1
+  echo 'rcpt to:<suter-123@bob.zwit.org>'
+  sleep 1
+  echo 'rcpt to:<suter@zwitterion.zwitterion.org>'
+  sleep 1
+  echo 'rcpt to:<mark.suter@gmail.com>'
+  sleep 1
+  echo 'rset'
+  sleep 1
+  echo 'quit'
+  sleep 1
+) | tee /dev/stderr | telnet $(uname -n) smtp

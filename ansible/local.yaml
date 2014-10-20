@@ -17,6 +17,8 @@
       service: name=cron state=restarted
 
 - hosts: mailservers
+  vars:
+    mailname: "{{ ansible_nodename }}.zwitterion.org"
   tasks:
   - name: ensure opensmtpd is installed.
     command:
@@ -25,7 +27,7 @@
   - name: generate a certificate.
     command:
       /srv/mail/create-certificate
-      creates=/etc/ssl/certs/{{ ansible_nodename }}.zwitterion.org.crt
+      creates=/etc/ssl/certs/{{ mailname }}.crt
   - name: generate a config.
     template:
       src=/srv/mail/smtpd.conf.j2 dest=/etc/smtpd.conf
