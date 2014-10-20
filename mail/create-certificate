@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -e
+set -u
+
+cd /etc/ssl
+
+umask 077
+
+name="$(uname -n).zwitterion.org"
+
+# Generate private key and the Certificate Signing Request (CSR).
+openssl req -newkey rsa:2048 -nodes -keyout "private/${name}.key" -out "private/${name}.csr" \
+  -subj "/CN=${name}/C=AU/ST=New South Wales/L=Sydney/O=Mark Suter"
+
+# Self-sign the CSR.
+openssl x509 -req -days 1096 -in "private/${name}.csr" -out "certs/${name}.crt" \
+  -signkey "private/${name}.key"
