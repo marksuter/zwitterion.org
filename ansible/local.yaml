@@ -16,6 +16,29 @@
     - name: restart cron
       service: name=cron state=restarted
 
+- hosts: mailservers
+  tasks:
+  - name: ensure opensmtpd is installed.
+    command:
+      /srv/mail/install-opensmtpd
+      creates=/usr/src/opensmtpd/installed
+  - name: generate a certificate.
+    command:
+      /srv/mail/create-certificate
+      creates=/etc/ssl/certs/{{ ansible_nodename }}.zwitterion.org.crt
+  - name: generate a config.
+    template:
+      src=/srv/mail/smtpd.conf.j2 dest=/etc/smtpd.conf
+      owner=root group=root mode=0644
+      validate='smtpd -n -f %s'
+    notify:
+    - restart opensmtpd
+  - name: ensure the service is running.
+    service: name=opensmtpd state=started
+  handlers:
+    - name: restart opensmtpd
+      service: name=opensmtpd state=restarted
+
 - hosts: nameservers
   tasks:
   - name: ensure bind9 is at the latest version.

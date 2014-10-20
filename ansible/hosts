@@ -1,2 +1,5 @@
+[mailservers]
+localhost ansible_connection=local
+
 [nameservers]
 localhost ansible_connection=local
