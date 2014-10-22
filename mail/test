@@ -3,17 +3,23 @@
 set -e
 set -u
 
+smtpctl log verbose 
+smtpctl trace expand
+smtpctl trace smtp
+
 (
   sleep 1
   echo 'ehlo localhost'
   sleep 1
-  echo 'mail from:<suter@zwitterion.org>'
+  echo 'mail from:<suter@zwit.org>'
   sleep 1
   echo 'rcpt to:<suter-123@bob.zwit.org>'
   sleep 1
-  echo 'rcpt to:<suter@zwitterion.zwitterion.org>'
+  echo 'rcpt to:<suter-456@tom.zwit.org>'
   sleep 1
-  echo 'rcpt to:<mark.suter@gmail.com>'
+  echo 'rcpt to:<other@someone.zwit.org>'
+  sleep 1
+  echo 'rcpt to:<other@zwitterion.org>'
   sleep 1
   echo 'rset'
   sleep 1

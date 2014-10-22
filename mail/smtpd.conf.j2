@@ -1,14 +1,27 @@
-# This is the smtpd server system-wide configuration file.
-# See smtpd.conf(5) for more information.
+listen on eth0 tls hostname "{{ mailname }}"
 
-# To accept external mail, replace with: listen on all
-listen on localhost
+max-message-size 100M
 
-# If you edit the file, you have to run "smtpctl update table aliases"
-table aliases file:/etc/aliases
+pki "{{ mailname }}" key "/etc/ssl/private/{{ mailname }}.key"
+pki "{{ mailname }}" certificate "/etc/ssl/certs/{{ mailname }}.crt"
 
-# Uncomment the following to accept external mail for domain "example.org"
-#accept from any for domain "example.org" alias <aliases> deliver to mbox
+table credentials db:/etc/mail/credentials.db
+table forwarding db:/etc/mail/forwarding.db
 
-accept for local alias <aliases> deliver to mbox
-accept for any relay
+# TODO(suter): The LHS of <forwarding> has all the email addresses for
+# all the domains.  Is there a way to leverage that and not have to list
+# the domains again here?  The obious "for any" doesn't work :(
+accept from any for domain "mark.suter.name" virtual <forwarding> userbase <forwarding>
+accept from any for domain "suter.id.au" virtual <forwarding> userbase <forwarding>
+accept from any for domain "*.zwit.org" virtual <forwarding> userbase <forwarding>
+accept from any for domain "zwitterion.humbug.org.au" virtual <forwarding> userbase <forwarding>
+accept from any for domain "*.zwitterion.org" virtual <forwarding> userbase <forwarding>
+
+accept for domain "zwitterion.zwitterion.org" \
+  relay via tls://zwitterion.zwitterion.org:2525 \
+  hostname "{{ mailname }}" 
+
+accept for any \
+  relay via tls+auth://sendgrid@smtp.sendgrid.net:2525 \
+  auth <credentials> \
+  hostname "{{ mailname }}"
