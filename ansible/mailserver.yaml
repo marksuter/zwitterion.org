@@ -16,13 +16,13 @@
         /srv/mail/create-certificate
         creates=/etc/ssl/certs/{{ mailname }}.crt
 
-    - name: pull tables from cloud storage.
-      command: gsutil rsync gs://zwitterion-org-mail-tables/ /srv/mail/tables/
-
     - name: create a new home for the tables.
       command:
-        mkdir -p /etc/mail
+        mkdir -p /etc/mail /srv/mail/tables
         creates=/etc/mail
+
+    - name: pull tables from cloud storage.
+      command: gsutil rsync gs://zwitterion-org-mail-tables/ /srv/mail/tables/
 
     - name: copy credentials into place.
       copy: src=/srv/mail/tables/credentials dest=/etc/mail/credentials
