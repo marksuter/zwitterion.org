@@ -3,7 +3,7 @@
 set -e
 set -u
 
-smtpctl log verbose 
+smtpctl log verbose
 smtpctl trace expand
 smtpctl trace smtp
 
@@ -25,4 +25,4 @@ smtpctl trace smtp
   sleep 1
   echo 'quit'
   sleep 1
-) | tee /dev/stderr | telnet $(uname -n) smtp
+) | tee /dev/stderr | nc $(uname -n) smtp
