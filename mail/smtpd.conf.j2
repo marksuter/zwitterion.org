@@ -19,7 +19,7 @@ accept from any for domain "*.zwitterion.org" virtual <forwarding> userbase <for
 
 accept for domain "zwitterion.zwitterion.org" \
   relay via tls://zwitterion.zwitterion.org:2525 \
-  hostname "{{ mailname }}" 
+  hostname "{{ mailname }}"
 
 accept for any \
   relay via tls+auth://sendgrid@smtp.sendgrid.net:2525 \
