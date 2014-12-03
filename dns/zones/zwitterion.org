@@ -1,11 +1,11 @@
 $TTL 1D
 
-@		SOA	zwitterion.zwitterion.org. suter.zwitterion.org. ( 2014101901 3H 1H 2W 1H )
+@		SOA	zwitterion.zwitterion.org. suter.zwitterion.org. ( 2014120301 3H 1H 2W 1H )
 		NS	frigg.zwitterion.org.
 		NS	metis.zwitterion.org.
 		NS	thoth.zwitterion.org.
 
-		A	110.44.29.229
+		A	103.25.214.76
 		MX	42 diadora.zwitterion.org.
 		SPF	"v=spf1 a mx a:zwitterion.zwitterion.org a:texas.zwitterion.org include:gnu.org -all"
 		TXT	"v=spf1 a mx a:zwitterion.zwitterion.org a:texas.zwitterion.org include:gnu.org -all"
@@ -18,11 +18,11 @@ suter-2013._domainkey TXT ( "v=DKIM1; k=rsa; "
 		"p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxCEAYvpCG8j6JgV37CnYLaYmrg6FmuSlFcDJft5HqkegrZ6LLyYu+zuYRmOaBmBvWBSs4at+ZSrbLArzPim6yb2nSIY9bafmtWCLkEOxHFS0Tw8L4O/7zAfPukE8Lw+phtNAAczD7KJnTR/b8GD3W5sMJDSXVokMAxvO8q4jZ9I+WBeVYvShTPrLfDWfn5dOfMasu6g2zGV4vX"
 		"Zhm1pq4qKpg0raPei2Y7eCNolOttL8yDBH928xF67C9dO+wNc48U1HZeuQV2yFJXMrDq+Bz+qoutwIF3t7PHnBbLg3nYn1+DARVUnJAv8LxWVq6Q0pIzks6D/BWbKyBDU8DVcfywIDAQAB" )
 
-checkbot	A	110.44.29.229
+checkbot	A	103.25.214.76
 		SPF	"v=spf1 -all"
 		TXT	"v=spf1 -all"
 
-diadora		A	110.44.29.229
+diadora		A	103.25.214.76
 		SPF	"v=spf1 a -all"
 		TXT	"v=spf1 a -all"
 
@@ -30,11 +30,11 @@ frigg		A	130.211.241.144
 		SPF	"v=spf1 a -all"
 		TXT	"v=spf1 a -all"
 
-linbot		A	110.44.29.229
+linbot		A	103.25.214.76
 		SPF	"v=spf1 -all"
 		TXT	"v=spf1 -all"
 
-lists		A	110.44.29.229
+lists		A	103.25.214.76
 		MX	42 diadora.zwitterion.org.
 		SPF	"v=spf1 a -all"
 		TXT	"v=spf1 a -all"
@@ -45,7 +45,7 @@ metis		A	146.148.116.68
 
 sendgrid	CNAME	sendgrid.net.
 
-stats		A	110.44.29.229
+stats		A	103.25.214.76
 		SPF	"v=spf1 -all"
 		TXT	"v=spf1 -all"
 
@@ -63,7 +63,7 @@ zwitterion	A	59.167.220.221
 		SPF	"v=spf1 a -all"
 		TXT	"v=spf1 a -all"
 
-www		A	110.44.29.229
+www		A	103.25.214.76
 		SPF	"v=spf1 -all"
 		TXT	"v=spf1 -all"
 

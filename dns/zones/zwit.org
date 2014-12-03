@@ -1,11 +1,11 @@
 $TTL 1D
 
-@		SOA	zwitterion.zwitterion.org. suter.zwitterion.org. ( 2014101901 3H 1H 2W 1H )
+@		SOA	zwitterion.zwitterion.org. suter.zwitterion.org. ( 2014120301 3H 1H 2W 1H )
 		NS	frigg.zwitterion.org.
 		NS	metis.zwitterion.org.
 		NS	thoth.zwitterion.org.
 
-		A	110.44.29.229
+		A	103.25.214.76
 		MX	42 diadora.zwitterion.org.
 		SPF	"v=spf1 include:zwitterion.org -all"
 		TXT	"v=spf1 include:zwitterion.org -all"
@@ -20,7 +20,7 @@ suter-2013._domainkey TXT ( "v=DKIM1; k=rsa; "
 
 sendgrid	CNAME	sendgrid.net.
 
-*		A	110.44.29.229
+*		A	103.25.214.76
 *		MX	42 diadora.zwitterion.org.
 *		SPF	"v=spf1 include:zwitterion.org -all"
 *		TXT	"v=spf1 include:zwitterion.org -all"
