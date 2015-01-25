@@ -1,6 +1,6 @@
 $TTL 1D
 
-@		SOA	zwitterion.zwitterion.org. suter.zwitterion.org. ( 2014120301 3H 1H 2W 1H )
+@		SOA	zwitterion.zwitterion.org. suter.zwitterion.org. ( 2015012501 3H 1H 2W 1H )
 		NS	frigg.zwitterion.org.
 		NS	metis.zwitterion.org.
 		NS	thoth.zwitterion.org.
@@ -26,7 +26,7 @@ diadora		A	103.25.214.76
 		SPF	"v=spf1 a -all"
 		TXT	"v=spf1 a -all"
 
-frigg		A	130.211.241.144
+frigg		A	130.211.251.76
 		SPF	"v=spf1 a -all"
 		TXT	"v=spf1 a -all"
 
