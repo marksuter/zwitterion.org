@@ -6,10 +6,8 @@
 
   tasks:
 
-    - name: ensure opensmtpd is installed.
-      command:
-        /srv/mail/install-opensmtpd
-        creates=/usr/src/opensmtpd/installed
+    - name: ensure opensmtpd is at the latest version.
+      apt: pkg=opensmtpd state=latest
 
     - name: generate a certificate.
       command:
