@@ -5,7 +5,7 @@ set -u
 
 dnszone='zwitterion.org'
 names='
-  frigg:asia-east1-b:130.211.241.144
+  frigg:asia-east1-b:130.211.251.76
   metis:europe-west1-b:146.148.116.68
   thoth:us-central1-f:146.148.80.34
 '
