@@ -1,14 +1,17 @@
 $TTL 1D
 
-@		SOA	zwitterion.zwitterion.org. suter.zwitterion.org. ( 2015012501 3H 1H 2W 1H )
+@		SOA	zwitterion.zwitterion.org. suter.zwitterion.org. ( 2015041501 3H 1H 2W 1H )
 		NS	frigg.zwitterion.org.
 		NS	metis.zwitterion.org.
 		NS	thoth.zwitterion.org.
 
 		A	103.25.214.76
+
 		MX	42 diadora.zwitterion.org.
 		SPF	"v=spf1 a mx a:zwitterion.zwitterion.org a:texas.zwitterion.org include:gnu.org -all"
 		TXT	"v=spf1 a mx a:zwitterion.zwitterion.org a:texas.zwitterion.org include:gnu.org -all"
+
+		TXT	"keybase-site-verification=ckUOFqU5SefIecQxsPsWkvXo8it0V3PVu-LdvEGyyTY"
 
 _dmarc		TXT	"v=DMARC1; p=none; rua=mailto:paug8nqb@ag.dmarcian.com;"
 
