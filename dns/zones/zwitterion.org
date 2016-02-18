@@ -1,6 +1,6 @@
 $TTL 1D
 
-@		SOA	zwitterion.zwitterion.org. suter.zwitterion.org. ( 2015041501 3H 1H 2W 1H )
+@		SOA	zwitterion.zwitterion.org. suter.zwitterion.org. ( 2016021801 3H 1H 2W 1H )
 		NS	frigg.zwitterion.org.
 		NS	metis.zwitterion.org.
 		NS	thoth.zwitterion.org.
@@ -47,6 +47,10 @@ metis		A	146.148.116.68
 		TXT	"v=spf1 a -all"
 
 sendgrid	CNAME	sendgrid.net.
+
+shell		A	104.199.142.175
+		SPF	"v=spf1 -all"
+		TXT	"v=spf1 -all"
 
 stats		A	103.25.214.76
 		SPF	"v=spf1 -all"
