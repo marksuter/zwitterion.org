@@ -25,7 +25,8 @@ for x in ${names}; do
     --delete-disks all \
     --project "${project}" \
     --quiet \
-    --zone "${zone}"
+    --zone "${zone}" \
+    || echo "Instance ${name} not present - continuing..."
 
   gcloud compute instances create \
     "${name}" \
@@ -34,10 +35,12 @@ for x in ${names}; do
     --boot-disk-size 10GB \
     --boot-disk-type pd-ssd \
     --description "nameserver and mail exchanger" \
-    --image debian-7-backports \
+    --image-family debian-8 \
+    --image-project debian-cloud \
     --machine-type f1-micro \
-    --metadata-from-file "startup-script=${startup}" \
     --project "${project}" \
+    --metadata-from-file "startup-script=${startup}" \
+    --tags dns-server \
     --quiet \
     --zone "${zone}"
 
