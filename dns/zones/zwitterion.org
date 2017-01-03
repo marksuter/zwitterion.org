@@ -1,6 +1,6 @@
 $TTL 1D
 
-@		SOA	zwitterion.zwitterion.org. suter.zwitterion.org. ( 2016021801 3H 1H 2W 1H )
+@		SOA	zwitterion.zwitterion.org. suter.zwitterion.org. ( 2017010101 3H 1H 2W 1H )
 		NS	frigg.zwitterion.org.
 		NS	metis.zwitterion.org.
 		NS	thoth.zwitterion.org.
@@ -8,8 +8,8 @@ $TTL 1D
 		A	103.25.214.76
 
 		MX	42 diadora.zwitterion.org.
-		SPF	"v=spf1 a mx a:zwitterion.zwitterion.org a:texas.zwitterion.org include:gnu.org -all"
-		TXT	"v=spf1 a mx a:zwitterion.zwitterion.org a:texas.zwitterion.org include:gnu.org -all"
+		SPF	"v=spf1 a mx a:shell.zwitterion.org a:texas.zwitterion.org include:sendgrid.net -all"
+		TXT	"v=spf1 a mx a:shell.zwitterion.org a:texas.zwitterion.org include:sendgrid.net -all"
 
 		TXT	"keybase-site-verification=ckUOFqU5SefIecQxsPsWkvXo8it0V3PVu-LdvEGyyTY"
 
@@ -21,10 +21,6 @@ suter-2013._domainkey TXT ( "v=DKIM1; k=rsa; "
 		"p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxCEAYvpCG8j6JgV37CnYLaYmrg6FmuSlFcDJft5HqkegrZ6LLyYu+zuYRmOaBmBvWBSs4at+ZSrbLArzPim6yb2nSIY9bafmtWCLkEOxHFS0Tw8L4O/7zAfPukE8Lw+phtNAAczD7KJnTR/b8GD3W5sMJDSXVokMAxvO8q4jZ9I+WBeVYvShTPrLfDWfn5dOfMasu6g2zGV4vX"
 		"Zhm1pq4qKpg0raPei2Y7eCNolOttL8yDBH928xF67C9dO+wNc48U1HZeuQV2yFJXMrDq+Bz+qoutwIF3t7PHnBbLg3nYn1+DARVUnJAv8LxWVq6Q0pIzks6D/BWbKyBDU8DVcfywIDAQAB" )
 
-checkbot	A	103.25.214.76
-		SPF	"v=spf1 -all"
-		TXT	"v=spf1 -all"
-
 diadora		A	103.25.214.76
 		SPF	"v=spf1 a -all"
 		TXT	"v=spf1 a -all"
@@ -32,10 +28,6 @@ diadora		A	103.25.214.76
 frigg		A	130.211.251.76
 		SPF	"v=spf1 a -all"
 		TXT	"v=spf1 a -all"
-
-linbot		A	103.25.214.76
-		SPF	"v=spf1 -all"
-		TXT	"v=spf1 -all"
 
 lists		A	103.25.214.76
 		MX	42 diadora.zwitterion.org.
@@ -49,10 +41,8 @@ metis		A	146.148.116.68
 sendgrid	CNAME	sendgrid.net.
 
 shell		A	104.199.142.175
-		SPF	"v=spf1 -all"
-		TXT	"v=spf1 -all"
-
-stats		A	103.25.214.76
+		MX	21 shell.zwitterion.org.
+		MX	42 diadora.zwitterion.org.
 		SPF	"v=spf1 -all"
 		TXT	"v=spf1 -all"
 
@@ -61,12 +51,6 @@ texas		A	23.251.145.86
 		TXT	"v=spf1 a -all"
 
 thoth		A	146.148.80.34
-		SPF	"v=spf1 a -all"
-		TXT	"v=spf1 a -all"
-
-zwitterion	A	59.167.220.221
-		MX	21 zwitterion.zwitterion.org.
-		MX	42 diadora.zwitterion.org.
 		SPF	"v=spf1 a -all"
 		TXT	"v=spf1 a -all"
 
