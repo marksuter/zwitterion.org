@@ -1,6 +1,6 @@
 $TTL 1D
 
-@		SOA	zwitterion.zwitterion.org. suter.zwitterion.org. ( 2017010101 3H 1H 2W 1H )
+@		SOA	zwitterion.zwitterion.org. suter.zwitterion.org. ( 2017010201 3H 1H 2W 1H )
 		NS	frigg.zwitterion.org.
 		NS	metis.zwitterion.org.
 		NS	thoth.zwitterion.org.
@@ -19,5 +19,8 @@ suter-2013._domainkey TXT ( "v=DKIM1; k=rsa; "
 		"p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsryBvKrAEiHR1PiNyEGSIDVBse2xxIiPTvpPk2klkDZZzDUZaSDhuqNG9nfZTli/nzBHr3tKL4DVCQwEobYLD8WmGvQsRwmexwOmUpUSKgffhsrgbxgpN1cNuWv1tUNz9RDsE1TrZktqezQWpMcpnRZhwbkKOv/12i5rMiLXjY9Iw08lf+SnrYw2y33bNgzH01FD6mdFbuSwaf"
 		"mofsUOUUwnn+EGm6M7MNac/Lepfi5kzpGBa5pMGfgee7ZT1YhiFxDmFFFPjbA1RsDmjN2CbDIuMb6DqcuyMxiB2tApiNW5p3+c42dItFMYlzgNhQwaCmArI5WdMp43MsQ135wUuQIDAQAB" )
 
-sendgrid	CNAME	sendgrid.net.
+suter-2017._domainkey TXT ( "v=DKIM1; k=rsa; "
+		"p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAurzTUcYiu0wD1Xh/u2LeOzF1GQNCdrURWHMSOHKOYwOYn1c/4J15b6hXGpGe//waIikhsp4/JzF+FdhI+YBnOTr7Yz572gUrlXH69+q2Iu8mRBWxlcu+2F8vD7FWbKkYVU1wV8gywNHnYt9Scx8yVvv2Swr3PYPud1VUwVLeS8D3tq+S5pGUcVa+yIlp+Ts/U5Hgcr5JmYTF2I"
+		"dlFARRSlkuTnyKwiTIdYZ0XiUrKOLqQQRZMgUUCAi3FjEHED1AlKx6jG+KorcO2bg88wvy2zHRmMgu4AK2NQ0Rlo1pDLidYf2cpe7Wu9Z3C5UuNf88dqrrHBhHfKVycRTyThOYowIDAQAB" )
 
+sendgrid	CNAME	sendgrid.net.

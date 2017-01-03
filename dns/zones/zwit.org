@@ -1,6 +1,6 @@
 $TTL 1D
 
-@		SOA	zwitterion.zwitterion.org. suter.zwitterion.org. ( 2014120301 3H 1H 2W 1H )
+@		SOA	zwitterion.zwitterion.org. suter.zwitterion.org. ( 2017010201 3H 1H 2W 1H )
 		NS	frigg.zwitterion.org.
 		NS	metis.zwitterion.org.
 		NS	thoth.zwitterion.org.
@@ -18,10 +18,13 @@ suter-2013._domainkey TXT ( "v=DKIM1; k=rsa; "
 		"p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxphXstbFYC/0TstDmxVPaljFjWxci+ilUkpnnjPM0DzlqlagaImJeEEbvsiMvD8GrnR5jZCJPdrD72t/oz+7VK8OMB9S+Pd96RBnHA5TtK862QBzZTUdWE8Rdo8RtjgKp0pJbpfETAm4zvcWt/9yCiQpMo3+QVsU2Yz9JFWY9elT3qtbmhm7lIIxnZWEPDXpSMwPox8gyGFeAQ"
 		"C9BzPLg3Bkvm8IgFnR/UIQsrX9f9ul0fg4tYEu3zltD0hNdeJ+aT3fBbDHra+7kYsYny3MTBVK8jZC7PGaawyzTVbFG+R+tHWFiyCmlqLJkwX2AC4hEqR39H/v/dqxIUK5KaL1BwIDAQAB" )
 
+suter-2017._domainkey TXT ( "v=DKIM1; k=rsa; "
+		"p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvm+eiEGgrazcXw7vh5SoNkseCWAAPdtCGvQAfO2bNsA1EtLdxySXgxYiFngD0D9zaGEAUdkQQJRBo7hd1FuUxZqVqjL26yA+MkT1jXftZ7wNYOCJi/r38vOYbHfL09z5/j0o6WZ/OYWwhGSTQ5gG9L7S4l+uBkdkU/CyNmnmm7NdrhBuwnkFPuTOK1euLk/Y3k0h0AmiqEClFS"
+		"f4cEFuFL4DWBE2jh1baZ1q4QdXhlWCdWWgLgWnjC0RrATNqKCGvLnn1JwLNKZSiP+YDWbQ3Q+nuu2U1b8oAS9j5O+ljChw02t9IrzK66vx6KpadlCZ8ACc6XjbMpAuKFfwc7UhGQIDAQAB" )
+
 sendgrid	CNAME	sendgrid.net.
 
 *		A	103.25.214.76
 *		MX	42 diadora.zwitterion.org.
 *		SPF	"v=spf1 include:zwitterion.org -all"
 *		TXT	"v=spf1 include:zwitterion.org -all"
-
