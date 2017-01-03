@@ -1,6 +1,6 @@
 $TTL 1D
 
-@		SOA	zwitterion.zwitterion.org. suter.zwitterion.org. ( 2017010201 3H 1H 2W 1H )
+@		SOA	zwitterion.zwitterion.org. suter.zwitterion.org. ( 2017010301 3H 1H 2W 1H )
 		NS	frigg.zwitterion.org.
 		NS	metis.zwitterion.org.
 		NS	thoth.zwitterion.org.
@@ -25,6 +25,11 @@ suter-2017._domainkey TXT ( "v=DKIM1; k=rsa; "
 		"p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAk+nCge2CRdTIswhcNSehbgPjaEmBAK+rohhnrFXVuhQKR+PHgXiZYTaYQfKibvw8Yg31fXijfm7NmsSjjy3slsqAiBYpKrDkBHPuiviS2M0zTLhxQidgdbR9pRzdYS9cwnOKTSO+idHb8+PIpd92pUGkkH8nWMpHNs+dJlPEm/GudyEE+eVSH2lDaLjTspJh+WLQ4Gohiku1Qd"
 		"gVhtUtahPXy3j8VlOYyKHb2kAIjlJ1saTQIALYj+0PT6iotOep4WKDhG48pbD4FF+j06J863jAVhSyuxsuk00ZWExd9FOWjnoU2NI5se17WOCUCjnO095ksEifKl5Z9uX0+KE+TwIDAQAB" )
 
+; [MJS 3 Jan 2017] Whitelabel domain with Sendgrid.
+sendgrid	CNAME	u1102537.wl038.sendgrid.net.
+s1._domainkey	CNAME   s1.domainkey.u1102537.wl038.sendgrid.net.
+s2._domainkey	CNAME   s1.domainkey.u1102537.wl038.sendgrid.net.
+
 diadora		A	103.25.214.76
 		SPF	"v=spf1 a -all"
 		TXT	"v=spf1 a -all"
@@ -41,8 +46,6 @@ lists		A	103.25.214.76
 metis		A	146.148.116.68
 		SPF	"v=spf1 a -all"
 		TXT	"v=spf1 a -all"
-
-sendgrid	CNAME	sendgrid.net.
 
 shell		A	104.199.142.175
 		MX	21 shell.zwitterion.org.
